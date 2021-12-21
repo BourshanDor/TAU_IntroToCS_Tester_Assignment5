@@ -13,33 +13,6 @@ from hw5_315780122 import Binary_search_tree
 from hw5_315780122 import Dict
 
 
-def test_edges():
-    isosceles_triangle1 = Polygon(Linked_list([Point(0, 0), Point(6, 0), Point(3, 3 ** 0.5 * 0.5 * 6)]))
-    isosceles_triangle2 = Polygon(Linked_list([Point(0, 0), Point(3, 3 ** 0.5 * 0.5 * 6), Point(6, 0)]))
-    isosceles_triangle3 = Polygon(Linked_list([Point(3, 3 ** 0.5 * 0.5 * 6), Point(0, 0), Point(6, 0)]))
-    isosceles_triangle4 = Polygon(Linked_list([Point(3, 3 ** 0.5 * 0.5 * 6), Point(6, 0), Point(0, 0)]))
-    angles = [60.0, 60.0, 60.0]
-    np.testing.assert_almost_equal(angles, isosceles_triangle1.edges(), 1)
-    np.testing.assert_almost_equal(angles, isosceles_triangle2.edges(), 1)
-    np.testing.assert_almost_equal(angles, isosceles_triangle3.edges(), 1)
-    np.testing.assert_almost_equal(angles, isosceles_triangle4.edges(), 1)
-
-    square1 = Polygon(Linked_list([Point(0, 0), Point(1, 0), Point(1, 1), Point(0, 1)]))
-    square2 = Polygon(Linked_list([Point(1, 0), Point(1, 1), Point(0, 1), Point(0, 0)]))
-    square3 = Polygon(Linked_list([Point(1, 1), Point(0, 1), Point(0, 0), Point(1, 0)]))
-    square4 = Polygon(Linked_list([Point(0, 1), Point(0, 0), Point(1, 0), Point(1, 1)]))
-    angles = [90.0, 90.0, 90.0, 90.0]
-    np.testing.assert_almost_equal(angles, square1.edges(), 1)
-    np.testing.assert_almost_equal(angles, square2.edges(), 1)
-    np.testing.assert_almost_equal(angles, square3.edges(), 1)
-    np.testing.assert_almost_equal(angles, square4.edges(), 1)
-
-    pentagon1 = Polygon(
-        Linked_list([Point(0, 0), Point(1, 0), Point(1, 1), Point(0.5, 3 ** 0.5 * 0.5 + 1), Point(0, 1)]))
-    angles = [90.0, 90.0, 150.0, 60.0, 150.0]
-    np.testing.assert_almost_equal(angles, pentagon1.edges(), 1)
-
-
 class TestHw5(unittest.TestCase):
     ##############
     # QUESTION 2 #
@@ -164,6 +137,32 @@ class TestHw5(unittest.TestCase):
         trees = [Point(0.5, 1), Point(1, 1), Point(0, 1), Point(-1, 0), Point(-1, 1), Point(-1, 0.75), Point(-1, 0.5)]
         self.assertAlmostEqual((3 / 4) * math.pi, hw5.find_optimal_angle(trees, 0.25 * math.pi), 2)
 
+    def test_edges(self):
+        isosceles_triangle1 = Polygon(Linked_list([Point(0, 0), Point(6, 0), Point(3, 3 ** 0.5 * 0.5 * 6)]))
+        isosceles_triangle2 = Polygon(Linked_list([Point(0, 0), Point(3, 3 ** 0.5 * 0.5 * 6), Point(6, 0)]))
+        isosceles_triangle3 = Polygon(Linked_list([Point(3, 3 ** 0.5 * 0.5 * 6), Point(0, 0), Point(6, 0)]))
+        isosceles_triangle4 = Polygon(Linked_list([Point(3, 3 ** 0.5 * 0.5 * 6), Point(6, 0), Point(0, 0)]))
+        angles = [60.0, 60.0, 60.0]
+        np.testing.assert_almost_equal(angles, isosceles_triangle1.edges(), 1)
+        np.testing.assert_almost_equal(angles, isosceles_triangle2.edges(), 1)
+        np.testing.assert_almost_equal(angles, isosceles_triangle3.edges(), 1)
+        np.testing.assert_almost_equal(angles, isosceles_triangle4.edges(), 1)
+
+        square1 = Polygon(Linked_list([Point(0, 0), Point(1, 0), Point(1, 1), Point(0, 1)]))
+        square2 = Polygon(Linked_list([Point(1, 0), Point(1, 1), Point(0, 1), Point(0, 0)]))
+        square3 = Polygon(Linked_list([Point(1, 1), Point(0, 1), Point(0, 0), Point(1, 0)]))
+        square4 = Polygon(Linked_list([Point(0, 1), Point(0, 0), Point(1, 0), Point(1, 1)]))
+        angles = [90.0, 90.0, 90.0, 90.0]
+        np.testing.assert_almost_equal(angles, square1.edges(), 1)
+        np.testing.assert_almost_equal(angles, square2.edges(), 1)
+        np.testing.assert_almost_equal(angles, square3.edges(), 1)
+        np.testing.assert_almost_equal(angles, square4.edges(), 1)
+
+        pentagon1 = Polygon(
+            Linked_list([Point(0, 0), Point(1, 0), Point(1, 1), Point(0.5, 3 ** 0.5 * 0.5 + 1), Point(0, 1)]))
+        angles = [90.0, 90.0, 150.0, 60.0, 150.0]
+        np.testing.assert_almost_equal(angles, pentagon1.edges(), 1)
+
     def test_simple(self):
         square1 = Polygon(Linked_list([Point(0, 0), Point(1, 0), Point(1, 1), Point(0, 1)]))
         square2 = Polygon(Linked_list([Point(0, 0), Point(1, 1), Point(0, 1), Point(1, 0)]))
@@ -283,3 +282,7 @@ class TestHw5(unittest.TestCase):
 
     def test(self):
         hw5.test()
+
+
+if __name__ == "__main__":
+    unittest.main()
